@@ -1,0 +1,338 @@
+{
+    "commands": {
+        "CSAFE_GETSTATUS_CMD": {
+            "name": "CSAFE_GETSTATUS_CMD",
+            "com_id": "0x80",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "status",
+                    "type": "int",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_RESET_CMD": {
+            "name": "CSAFE_RESET_CMD",
+            "com_id": "0x81",
+            "cargs": [],
+            "rargs": []
+        },
+        "CSAFE_GOIDLE_CMD": {
+            "name": "CSAFE_GOIDLE_CMD",
+            "com_id": "0x82",
+            "cargs": [],
+            "rargs": []
+        },
+        "CSAFE_GOHAVEID_CMD": {
+            "name": "CSAFE_GOHAVEID_CMD",
+            "com_id": "0x83",
+            "cargs": [],
+            "rargs": []
+        },
+        "CSAFE_GOINUSE_CMD": {
+            "name": "CSAFE_GOINUSE_CMD",
+            "com_id": "0x85",
+            "cargs": [],
+            "rargs": []
+        },
+        "CSAFE_GOFINISHED_CMD": {
+            "name": "CSAFE_GOFINISHED_CMD",
+            "com_id": "0x86",
+            "cargs": [],
+            "rargs": []
+        },
+        "CSAFE_GOREADY_CMD": {
+            "name": "CSAFE_GOREADY_CMD",
+            "com_id": "0x87",
+            "cargs": [],
+            "rargs": []
+        },
+        "CSAFE_BADID_CMD": {
+            "name": "CSAFE_BADID_CMD",
+            "com_id": "0x88",
+            "cargs": [],
+            "rargs": []
+        },
+        "CSAFE_GETVERSION_CMD": {
+            "name": "CSAFE_GETVERSION_CMD",
+            "com_id": "0x91",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "mfg_id",
+                    "type": "int",
+                    "bcount": 1,
+                    "endianness": "big"
+                },
+                {
+                    "name": "cid",
+                    "type": "int",
+                    "bcount": 1,
+                    "endianness": "big"
+                },
+                {
+                    "name": "model",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                },
+                {
+                    "name": "hw_version",
+                    "type": "*",
+                    "bcount": 2,
+                    "endianness": "big"
+                },
+                {
+                    "name": "sw_version",
+                    "type": "*",
+                    "bcount": 2,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETID_CMD": {
+            "name": "CSAFE_GETID_CMD",
+            "com_id": "0x92",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "ascii_digits",
+                    "type": "int",
+                    "bcount": 5,
+                    "endianness": "little"
+                }
+            ]
+        },
+        "CSAFE_GETUNITS_CMD": {
+            "name": "CSAFE_GETUNITS_CMD",
+            "com_id": "0x93",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "units_type",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETSERIAL_CMD": {
+            "name": "CSAFE_GETSERIAL_CMD",
+            "com_id": "0x94",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "ascii_serial_number",
+                    "type": "int",
+                    "bcount": 9,
+                    "endianness": "little"
+                }
+            ]
+        },
+        "CSAFE_GETODOMETER_CMD": {
+            "name": "CSAFE_GETODOMETER_CMD",
+            "com_id": "0x9B",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "distance",
+                    "type": "*",
+                    "bcount": 4,
+                    "endianness": "big"
+                },
+                {
+                    "name": "units_specifier",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETERRORCODE_CMD": {
+            "name": "CSAFE_GETERRORCODE_CMD",
+            "com_id": "0x9C",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "error_code",
+                    "type": "*",
+                    "bcount": 3,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETTWORK_CMD": {
+            "name": "CSAFE_GETTWORK_CMD",
+            "com_id": "0xA0",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "hours",
+                    "type": "int",
+                    "bcount": 1,
+                    "endianness": "big"
+                },
+                {
+                    "name": "minutes",
+                    "type": "int",
+                    "bcount": 1,
+                    "endianness": "big"
+                },
+                {
+                    "name": "seconds",
+                    "type": "int",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETHORIZONTAL_CMD": {
+            "name": "CSAFE_GETHORIZONTAL_CMD",
+            "com_id": "0xA1",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "horizontal_distance",
+                    "type": "*",
+                    "bcount": 2,
+                    "endianness": "big"
+                },
+                {
+                    "name": "units_specifier",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETCALORIES_CMD": {
+            "name": "CSAFE_GETCALORIES_CMD",
+            "com_id": "0xA3",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "total_calories",
+                    "type": "*",
+                    "bcount": 2,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETPROGRAM_CMD": {
+            "name": "CSAFE_GETPROGRAM_CMD",
+            "com_id": "0xA4",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "prog_workout_number",
+                    "type": "int",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETPACE_CMD": {
+            "name": "CSAFE_GETPACE_CMD",
+            "com_id": "0xA6",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "stroke_pace",
+                    "type": "*",
+                    "bcount": 2,
+                    "endianness": "big"
+                },
+                {
+                    "name": "units_specifier",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETCADENCE_CMD": {
+            "name": "CSAFE_GETCADENCE_CMD",
+            "com_id": "0xA7",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "stroke_rate",
+                    "type": "*",
+                    "bcount": 2,
+                    "endianness": "big"
+                },
+                {
+                    "name": "units_specifier",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETUSERINFO_CMD": {
+            "name": "CSAFE_GETUSERINFO_CMD",
+            "com_id": "0xAB",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "weight",
+                    "type": "int",
+                    "bcount": 2,
+                    "endianness": "big"
+                },
+                {
+                    "name": "units_specifier",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                },
+                {
+                    "name": "age",
+                    "type": "int",
+                    "bcount": 1,
+                    "endianness": "big"
+                },
+                {
+                    "name": "gender",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETHRCUR_CMD": {
+            "name": "CSAFE_GETHRCUR_CMD",
+            "com_id": "0xB0",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "beatspm",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        },
+        "CSAFE_GETPOWER_CMD": {
+            "name": "CSAFE_GETPOWER_CMD",
+            "com_id": "0xB4",
+            "cargs": [],
+            "rargs": [
+                {
+                    "name": "stroke_watts",
+                    "type": "*",
+                    "bcount": 2,
+                    "endianness": "big"
+                },
+                {
+                    "name": "units_specifier",
+                    "type": "*",
+                    "bcount": 1,
+                    "endianness": "big"
+                }
+            ]
+        }
+    }
+}
