@@ -7,8 +7,10 @@ class ErgBLEClient:
     Implements low-level bleak write and read frames to and from a single erg.
     """
 
-    def __init__(self):
+    def __init__(self, address: str | bleak.BLEDevice):
         self._reqlock = asyncio.Lock()
+        self._addr = address
+        self._bclient = bleak.BleakClient(address)
 
     async def write(self, frame: bytes):
         await self._reqlock.acquire()
