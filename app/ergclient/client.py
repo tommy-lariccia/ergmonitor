@@ -4,6 +4,7 @@ import asyncio
 WRITE_CHAR_ADDR = 'CE060021-43E5-11E4-916C-0800200C9A66'
 NOTIFY_CHAR_ADDR = 'CE060022-43E5-11E4-916C-0800200C9A66'
 
+
 class ErgBLEClient:
     """
     Implements low-level bleak write and read frames to and from a single erg.

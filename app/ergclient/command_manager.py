@@ -1,5 +1,5 @@
-from client import ErgBLEClient
-import csafe
+from .client import ErgBLEClient
+import app.csafe
 
 import asyncio
 import queue

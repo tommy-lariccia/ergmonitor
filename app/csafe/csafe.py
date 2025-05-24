@@ -1,11 +1,10 @@
-from csafe_com_schematics import (csafe_com_schematics,
-                                  STANDARD_FRAME_START_FLAG, STOP_FLAG,
-                                  BYTE_STUFFING_MAP, BYTE_STUFFING_FLAG,
-                                  MAX_FRAME_LENGTH)
+from .csafe_config import (STANDARD_FRAME_START_FLAG, STOP_FLAG,
+                           BYTE_STUFFING_MAP, BYTE_STUFFING_FLAG, MAX_FRAME_LENGTH)
 
 
 def is_valid_command(ident: str) -> bool:
-    return ident in csafe_com_schematics
+    return True
+    #return ident in csafe_com_schematics
 
 
 def is_public_command(ident: str) -> bool:
@@ -17,16 +16,18 @@ def is_private_command(ident: str) -> bool:
 
 
 def is_short_command(ident: str) -> bool:
-    return not len(csafe_com_schematics[ident]['cargs'])
+    return True
+    # return not len(csafe_com_schematics[ident]['cargs'])
 
 
-def _make_short_command(ident: str) -> bytes:
+def _make_short_command(ident: int) -> bytes:
     buffer = bytearray()
-    buffer.append(csafe_com_schematics[ident]['com_id'])
+    buffer.append(ident)
+    # buffer.append(csafe_com_schematics[ident]['com_id'])
     return bytes(buffer)
 
 
-def make_command(ident: str) -> bytes:
+def make_command(ident: int) -> bytes:
     if is_short_command(ident):
         return _make_short_command(ident)
 
@@ -66,10 +67,10 @@ def is_within_size_limits(frame: bytes) -> bool:
 
 
 def read_results(ident: str, fdata: bytearray | bytes):
-    assert data[0] == STANDARD_FRAME_START_FLAG
-    assert data[-1] == STOP_FLAG
-    status = data[1]
-    contents = data[2:-1]
+    assert fdata[0] == STANDARD_FRAME_START_FLAG
+    assert fdata[-1] == STOP_FLAG
+    status = fdata[1]
+    contents = fdata[2:-1]
     print(contents)
     ...
 
