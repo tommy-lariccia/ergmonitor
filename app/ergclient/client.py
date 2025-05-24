@@ -30,7 +30,7 @@ class ErgBLEClient:
 
     async def write(self, frame: bytes):
         await self._reqlock.acquire()
-        await self._bclient.write_gatt_char(WRITE_CHAR_ADDR, frame, True)
+        await self._bclient.write_gatt_char(WRITE_CHAR_ADDR, frame, False)
 
     async def read(self) -> bytes:
         assert self._reqlock.locked()
@@ -50,21 +50,3 @@ class ErgBLEClient:
 
     async def __aexit__(self, *args):
         await self.disconnect()
-
-
-async def main():
-    cldev = None
-    async with bleak.BleakScanner() as scanner:
-        async for dev, adata in scanner.advertisement_data():
-            if adata.local_name is not None and adata.local_name.startswith('PM'):
-                cldev = dev
-                break
-
-    async with ErgBLEClient(cldev) as client:
-        await \
-        client.write(b'\xF1\x76\x07\x01\x01\01\x13\x02\x01\x01\x61\xF2')
-        print(await client.read())
-
-
-if __name__ == '__main__':
-    asyncio.run(main())
